@@ -47,9 +47,12 @@ enum class GameResult {
     // Return the result of the game as a string
     fun getResultAsString(): String {
         return when (this) {
-            WIN -> Resources.getSystem().getString(R.string.you_win)
-            LOSE -> Resources.getSystem().getString(R.string.computer_wins)
-            DRAW -> Resources.getSystem().getString(R.string.draw)
+            //WIN -> Resources.getSystem().getString(R.string.you_win)
+            //LOSE -> Resources.getSystem().getString(R.string.computer_wins)
+            //DRAW -> Resources.getSystem().getString(R.string.draw)
+            WIN -> "You win"
+            LOSE -> "Computer wins"
+            DRAW -> "Draw"
         }
     }
 }

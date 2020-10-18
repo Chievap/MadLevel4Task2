@@ -51,7 +51,7 @@ class HistoryFragment : Fragment() {
             findNavController().popBackStack()
         }
     }
-
+    // Deletes the history
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.iv_action_delete_history -> {

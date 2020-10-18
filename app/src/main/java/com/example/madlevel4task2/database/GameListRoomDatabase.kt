@@ -9,9 +9,7 @@ import com.example.madlevel4task2.converter.Converters
 import com.example.madlevel4task2.dao.GameDao
 import com.example.madlevel4task2.model.Game
 
-// entities: the tables we have in our db,
 // version: version of the database, when schema is modified you need update version and define migration strategy
-// exportSchema: to export the schema into a directory, look up Database Migrations
 @Database(entities = [Game::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class GamesListRoomDatabase : RoomDatabase() {
@@ -28,6 +26,7 @@ abstract class GamesListRoomDatabase : RoomDatabase() {
             if (gameListRoomDatabaseInstance == null) {
 
                 synchronized(GamesListRoomDatabase::class.java) {
+                    // If there is not an instance of the db yet make one
                     if (gameListRoomDatabaseInstance == null) {
                         gameListRoomDatabaseInstance = Room.databaseBuilder(
                             context.applicationContext,

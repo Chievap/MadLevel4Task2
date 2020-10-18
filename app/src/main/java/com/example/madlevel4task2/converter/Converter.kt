@@ -5,7 +5,7 @@ import androidx.room.TypeConverter
 import com.example.madlevel4task2.model.GameMove
 import com.example.madlevel4task2.model.GameResult
 import java.util.*
-
+// Converts a game to storable values in the db
 class Converters {
     @TypeConverter
     fun fromTimestamp(value: Long?): Date? {

@@ -27,8 +27,7 @@ class HistoryFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle? ): View? {
-        setHasOptionsMenu(true) // the [onCreateOptionsMenu] of this class is invoked instead of the MainActivity
-        // Inflate the layout for this fragment
+        setHasOptionsMenu(true)
         return inflater.inflate(R.layout.fragment_history, container, false)
     }
 
@@ -64,7 +63,6 @@ class HistoryFragment : Fragment() {
     }
 
     private fun initializeHistoryRecyclerView() {
-        val viewManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 
         rv_game_history_list.addItemDecoration(
             DividerItemDecoration(
@@ -74,8 +72,8 @@ class HistoryFragment : Fragment() {
         )
 
         rv_game_history_list.apply {
-            setHasFixedSize(true) // true because the ViewHolder's do not affect the RecyclerView's size.
-            layoutManager = viewManager
+            setHasFixedSize(true) // true because the ViewHolder's do not affect the RecyclerView's size
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
             adapter = gameHistoryAdapter
         }
     }

@@ -67,12 +67,21 @@ class GameFragment : Fragment() {
         }
     }
 
+    private fun getDrawableFromGameMove (move: GameMove): Int {
+        val gameResult = 0
+        when (move) {
+            GameMove.ROCK -> R.drawable.rock
+            GameMove.PAPER -> R.drawable.paper
+            GameMove.SCISSORS -> R.drawable.scissors
+        }
+        return gameResult
+    }
 
 
     private fun fillResultOfGame(playerGameMove: GameMove) {
-        val imageResourcePlayer = GameMove.getDrawable(playerGameMove)
+        val imageResourcePlayer = getDrawableFromGameMove(playerGameMove)
         val computerGameMove = GameMove.values().random()
-        val imageResourceComputer = computerGameMove.getDrawable()
+        val imageResourceComputer = getDrawableFromGameMove(computerGameMove)
         val gameResult = getGameResult(computerGameMove, playerGameMove)
 
         iv_selected_hand_you.setImageResource(imageResourcePlayer)
